@@ -12,15 +12,18 @@ item.addEventListener(
 )
 
 let addToDO = (item) => {
-    let listItem = document.createElement("li");
+    let listItem = document.createElement("li",);
     listItem.innerHTML = `
         ${item}
     <i class="fas fa-times"></i>
+    <button> Edit </button>
     `;
-    listItem.addEventListener(
+ 
+    listItem.querySelector("button").addEventListener(
         "click",
         function(){
-            this.classList.toggle("done");
+            
+            listItem.innerHTML = prompt("enter Your Edit")
         }
     )
     listItem.querySelector("i").addEventListener(
@@ -29,5 +32,11 @@ let addToDO = (item) => {
             listItem.remove()
         }
     )
+    listItem.addEventListener(
+        "click",
+        function(){
+            this.classList.toggle("done");
+        }
+    ) 
     toDoBox.appendChild(listItem);
 }
